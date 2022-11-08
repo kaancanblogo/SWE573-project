@@ -10,6 +10,7 @@ django-tastypie = "==0.14.2"
 django-utils-six = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 autopep8 = "*"
