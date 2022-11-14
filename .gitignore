@@ -1,2 +1,5 @@
- # Database files
+# Database files
 SocialPocket/*.sqlite3
+
+# __pycache__ files
+__pycache__/
