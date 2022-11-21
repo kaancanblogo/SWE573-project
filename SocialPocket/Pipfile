@@ -11,6 +11,8 @@ django-utils-six = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-crispy-forms = "*"
+django-environ = "*"
+psycopg2 = "*"
 
 [dev-packages]
 autopep8 = "*"

@@ -3,3 +3,6 @@ SocialPocket/*.sqlite3
 
 # __pycache__ files
 __pycache__/
+
+#env files
+*.env
