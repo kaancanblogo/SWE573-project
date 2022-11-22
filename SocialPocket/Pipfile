@@ -13,6 +13,8 @@ whitenoise = "*"
 django-crispy-forms = "*"
 django-environ = "*"
 psycopg2 = "*"
+django-autoslug = "*"
+pillow = "*"
 
 [dev-packages]
 autopep8 = "*"
