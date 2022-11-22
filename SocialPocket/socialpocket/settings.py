@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'crispy_forms',
     'users.apps.UsersConfig',
+    'contents.apps.ContentsConfig'
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

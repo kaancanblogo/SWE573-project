@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile
 # here post are not created yet.
-# from feed.models import Post
+from contents.models import Post
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
@@ -120,7 +120,7 @@ def profile_view(request, slug):
     u = p.user
     sent_friend_requests = FriendRequest.objects.filter(from_user=p.user)
     rec_friend_requests = FriendRequest.objects.filter(to_user=p.user)
-    # user_posts = Post.objects.filter(user_name=u)
+    user_posts = Post.objects.filter(user_name=u)
 
     friends = p.friends.all()
 
@@ -145,7 +145,7 @@ def profile_view(request, slug):
         'friends_list': friends,
         'sent_friend_requests': sent_friend_requests,
         'rec_friend_requests': rec_friend_requests,
-        # 'post_count': user_posts.count
+        'post_count': user_posts.count
     }
 
     return render(request, "users/profile.html", context)
@@ -192,7 +192,7 @@ def my_profile(request):
     you = p.user
     sent_friend_requests = FriendRequest.objects.filter(from_user=you)
     rec_friend_requests = FriendRequest.objects.filter(to_user=you)
-    # user_posts = Post.objects.filter(user_name=you)
+    user_posts = Post.objects.filter(user_name=you)
     friends = p.friends.all()
 
     # is this user our friend
@@ -215,7 +215,7 @@ def my_profile(request):
         'friends_list': friends,
         'sent_friend_requests': sent_friend_requests,
         'rec_friend_requests': rec_friend_requests,
-        # 'post_count': user_posts.count
+        'post_count': user_posts.count
     }
 
     return render(request, "users/profile.html", context)
