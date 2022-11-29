@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'contents.apps.ContentsConfig'
 ]
+
+# Crispy_forms uses Bootstrap 3 by default, to set this as Bootstrap 4, we define CRISPY_TEMPLATE_PACK
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [

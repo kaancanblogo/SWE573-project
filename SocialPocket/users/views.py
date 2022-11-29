@@ -1,9 +1,5 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Profile
-# here post are not created yet.
 from contents.models import Post
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
