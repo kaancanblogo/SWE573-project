@@ -1,4 +1,5 @@
-{% extends "contents/layout.html" %} {% load static %} {% block cssfiles %} {% endblock cssfiles %} {% block searchform %}
+{% extends "contents/layout.html" %} {% load static %} {% block cssfiles %} {% endblock cssfiles %} 
+{% block searchform %}
     <form
       class="form-inline my-2 my-lg-0 ml-5"
       action="{% url 'search_users' %}"
@@ -9,8 +10,8 @@
         Search
       </button>
     </form>
-    {% endblock searchform %} {% block content %}
-    
+    {% endblock searchform %} 
+    {% block content %}
     <div class="main-content">
       <div class="container mt-7">
         <div class="row">
@@ -30,30 +31,22 @@
                   </div>
                 </div>
               </div>
-              <div
-                class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4"
-              ></div>
+              <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4"></div>
               <div class="card-body pt-0 pt-md-4">
                 <div class="row">
                   <div class="col">
-                    <div
-                      class="card-profile-stats d-flex justify-content-center mt-md-5"
-                    >
+                    <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                       <div>
                         <span class="heading">{{ u.profile.friends.count }}</span>
                         {% if request.user == u %}
                         <span class="description"
-                          ><a href="{% url 'friend_list' %}">Friends</a></span
-                        >
+                          ><a href="{% url 'friend_list' %}">Friends</a>
+                          </span>
                         {% else %}
                         <span class="description">Friends</span>
                         {% endif %}
                         <span class="heading">{{ post_count }}</span>
-                        <span class="description"
-                          ><a href="{% url 'user-posts' u.username %}"
-                            >Posts</a
-                          ></span
-                        >
+                        <span class="description"><a href="{% url 'user-posts' u.username %}">Posts</a></span>
                       </div>
                     </div>
                   </div>
@@ -63,17 +56,13 @@
                   <p>{{ u.profile.bio }}</p>
                   <hr class="my-2" />
                   {% if request.user == u %}
-                  <a class="btn btn-info" href="{% url 'edit_profile' %}"
-                    >Edit Profile</a
-                  >
+                  <a class="btn btn-info" href="{% url 'edit_profile' %}">Edit Profile</a>
                   {% else %} {% if button_status == 'not_friend' %}
-                  <small
-                    ><a
+                  <small><a
                       class="btn btn-primary"
                       href="/users/friend-request/send/{{ u.id }}"
-                      >Add Friend</a
-                    ></small
-                  >
+                      >Add Friend</a>
+                    </small>
                   {% elif button_status == 'friend_request_sent' %}
                   <small
                     ><a
@@ -188,4 +177,6 @@
       </div>
     </div>
     
-    {% endblock content %} {% block jsfiles %}{% endblock jsfiles %}
+    {% endblock content %} 
+    {% block jsfiles %}
+    {% endblock jsfiles %}

@@ -21,25 +21,35 @@
 	          	<br><br>
 	            <p class="card-text text-dark">{{ post.description }}</p>
 	          </div>
-	          <a href="{% url 'post-detail' post.id %}"><img class="card-img-top" src="{{ post.pic.url }}" alt=""></a>
-	          {% if post.tags %}
-	          <br><p class="text-danger ml-3"><b>Tags: <i>{{ post.tags }}</i></b></p>
+            <div class="card-body">
+              <a class="btn btn-primary" href="{{ post.link }}" role="button" target="_blank" rel="noopener noreferrer" style="width: 80%; white-space: normal;
+              word-wrap: break-word;" >
+                <b>Link:</b> {{ post.link }} </a>
+            </div>
+            {% if post.tags %}
+            <p class="text-danger ml-3"><b>Tags: <i>{{ post.tags }}</i></b></p>
 	          {% endif %}
-	          <div class="card-footer">
-	          	<button class="btn btn-white mr-3 like" id="{{ post.id }}">
-			        {% if post in liked_post %}
-			            <a href="{% url 'post-like' %}" style="color:red;" id="likebtn{{ post.id }}"> Unlike</a> | {{post.likes.count}}
-			        {% else %}
-			            <a href="{% url 'post-like' %}" style="color:green;" id="likebtn{{ post.id }}"> Like</a> | {{post.likes.count}}
-			        {% endif %}
-			    </button>
-	          	<a class="btn btn-outline-info" href="{% url 'post-detail' post.id %}">Comments | {{ post.details.count }}</a>
-	          </div>
-	        </div>
-	        {% endfor %}
-	  	   </div>
-	    </div>
-	</div>
+            <div class="card-footer">
+              <button class="btn btn-white mr-3 like" id="{{ post.id }}">
+                {% if post in liked_post %}
+                    <a href="{% url 'post-like' %}" style="color:red;" id="likebtn{{ post.id }}"> Unlike</a> | {{post.likes.count}}
+                {% else %}
+                    <a href="{% url 'post-like' %}" style="color:green;" id="likebtn{{ post.id }}"> Like</a> | {{post.likes.count}}
+                {% endif %}
+              </button>
+              <a class="btn btn-outline-info mr-3" href="{% url 'post-detail' post.id %}">Comments | {{ post.details.count }}</a>
+              {% if post.user_name == user %}
+              <a class="btn btn-outline-warning mr-3" href="{% url 'post-update' post.id %}">Update</a>
+              <a class="btn btn-outline-danger mr-3" href="{% url 'post-delete' post.id %}">Delete</a>
+              {% endif %}
+            </div>
+          </div>
+
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 
 {% if is_paginated %}
 

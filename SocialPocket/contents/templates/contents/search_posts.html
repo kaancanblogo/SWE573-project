@@ -26,7 +26,11 @@
 	          	<br><br>
 	            <p class="card-text text-dark">{{ post.description }}</p>
 	          </div>
-	          <a href="{% url 'post-detail' post.id %}"><img class="card-img-top" src="{{ post.pic.url }}" alt=""></a>
+			  <div class="card-body">
+				<a class="btn btn-primary" href="{{ post.link }}" role="button" target="_blank" rel="noopener noreferrer" style="width: 80%; white-space: normal;
+				word-wrap: break-word;" >
+				  <b>Link:</b> {{ post.link }} </a>
+			  </div>
 	          {% if post.tags %}
 	          <br><p class="text-danger ml-3"><b>Tags: <i>{{ post.tags }}</i></b></p>
 	          {% endif %}

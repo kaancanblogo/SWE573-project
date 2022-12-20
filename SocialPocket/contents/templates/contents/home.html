@@ -14,7 +14,7 @@
 
 	      <div class="col-md-8">
 	        {% for post in posts %}
-	        <div class="card card-signin my-5">
+	        <div class="card card-signin my-4">
 	          <div class="card-body">
 	          	<a href="{{ post.user_name.profile.get_absolute_url }}"><img src="{{ post.user_name.profile.image.url }}" class="rounded-circle" width="30" height="30" alt=""></a>
 	          	<a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ post.user_name }}</b></a>
@@ -22,9 +22,12 @@
 	          	<br><br>
 	            <p class="card-text text-dark">{{ post.description }}</p>
 	          </div>
-	          <a href="{% url 'post-detail' post.id %}"><img class="card-img-top" src="{{ post.pic.url }}" alt=""></a>
+            <div class="card-body">
+              <a class="btn btn-primary" href="{{ post.link }}" role="button" target="_blank" rel="noopener noreferrer" style="width: 80%; white-space: normal;
+              word-wrap: break-word;" >
+                <b>Link:</b> {{ post.link }} </a>
+            </div>
 	          {% if post.tags %}
-	          <br>
 	          <p class="text-danger ml-3"><b>Tags: <i>{{ post.tags }}</i></b></p>
 	          {% endif %}
 	          <div class="card-footer">
@@ -68,6 +71,10 @@
 {% endblock content %}
 
 {% block jsfiles %}
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 <script>
 	$(".like").click(function (e) {
     var id = this.id;
