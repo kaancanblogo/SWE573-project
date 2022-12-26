@@ -104,14 +104,26 @@ WSGI_APPLICATION = 'socialpocket.wsgi.application'
 # }
 
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "dbSocialPocket",
+#         "USER": "postgres",
+#         "PASSWORD": "kaanCAN1989!!",
+#         "HOST": "127.0.0.1",  # set in docker-compose.yml
+#         "PORT": 5432,  # default postgres port
+#     }
+# }
+
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "dbSocialPocket",
-        "USER": "postgres",
-        "PASSWORD": "kaanCAN1989!!",
-        "HOST": "127.0.0.1",  # set in docker-compose.yml
-        "PORT": 5432,  # default postgres port
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'dbSocialPocket',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+                'host': 'mongodb+srv://kaancan:kaanCAN1989!!@cluster0.septfk5.mongodb.net/?retryWrites=true&w=majority'
+        }
     }
 }
 

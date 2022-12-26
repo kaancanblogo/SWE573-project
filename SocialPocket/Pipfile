@@ -4,8 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "<4.0"
-pylint-django = "*"
 django-tastypie = "==0.14.2"
 django-utils-six = "*"
 gunicorn = "*"
@@ -15,9 +13,15 @@ django-environ = "*"
 psycopg2 = "*"
 django-autoslug = "*"
 pillow = "*"
+django = "*"
+pylint = "*"
+djongo = "*"
+dnspython = "*"
+pymongo = "==3.12.3"
 
 [dev-packages]
 autopep8 = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.10"
