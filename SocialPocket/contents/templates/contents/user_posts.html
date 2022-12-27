@@ -10,10 +10,10 @@
 {% endblock searchform %}
 {% block content %}
  	<div class="container">
-	    <div class="row">
-	      <div class="col-md-8">
+	    <div class="row d-flex justify-content-center">
+	      <div class="col-md-10">
 	        {% for post in posts %}
-	        <div class="card card-signin my-5">
+	        <div class="card card-signin my-4">
 	          <div class="card-body">
 	          	<a href="{{ post.user_name.profile.get_absolute_url }}"><img src="{{ post.user_name.profile.image.url }}" class="rounded-circle" width="30" height="30" alt=""></a>
 	          	<a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ post.user_name }}</b></a>
@@ -21,7 +21,7 @@
 	          	<br><br>
 	            <p class="card-text text-dark"> <b>{{ post.description }} </b> </p>
               <p class="card-text text-dark">{{ post.content }}</p>
-	          </div>
+            </div>
             <div class="card-body">
               <a class="btn btn-primary" href="{{ post.link }}" role="button" target="_blank" rel="noopener noreferrer" style="width: 80%; white-space: normal;
               word-wrap: break-word;" >
@@ -45,8 +45,6 @@
               {% endif %}
             </div>
           </div>
-
-        </div>
         {% endfor %}
       </div>
     </div>
