@@ -84,7 +84,7 @@ def create_post(request):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['description', 'link', 'tags']
+    fields = ['description','content','link', 'tags']
     template_name = 'contents/create_post.html'
 
     def form_valid(self, form):

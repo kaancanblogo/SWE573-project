@@ -6,6 +6,7 @@ from django.utils import timezone
 
 class Post(models.Model):
     description = models.CharField(max_length=255, blank=True)
+    content = models.TextField(blank=True)
     link = models.URLField(max_length=1000)
     date_posted = models.DateTimeField(default=timezone.now)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)

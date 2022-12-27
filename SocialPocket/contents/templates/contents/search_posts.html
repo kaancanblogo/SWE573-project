@@ -24,7 +24,8 @@
 	          	<a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ post.user_name }}</b></a>
 	          	<br><small class="text-muted">Posted on {{ post.date_posted }}</small>
 	          	<br><br>
-	            <p class="card-text text-dark">{{ post.description }}</p>
+				<p class="card-text text-dark"> <b>{{ post.description }} </b> </p>
+				<p class="card-text text-dark">{{ post.content }}</p>
 	          </div>
 			  <div class="card-body">
 				<a class="btn btn-primary" href="{{ post.link }}" role="button" target="_blank" rel="noopener noreferrer" style="width: 80%; white-space: normal;

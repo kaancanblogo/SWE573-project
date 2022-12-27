@@ -19,7 +19,8 @@
 	          	<a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ post.user_name }}</b></a>
 	          	<br><small class="text-muted">Posted on {{ post.date_posted }}</small>
 	          	<br><br>
-	            <p class="card-text text-dark">{{ post.description }}</p>
+				<p class="card-text text-dark"> <b>{{ post.description }} </b> </p>
+				<p class="card-text text-dark">{{ post.content }}</p>
 	          </div>
 	          {% comment %} <a href="{{ post.pic.url }}"><img class="card-img-top" src="{{ post.pic.url }}" alt=""></a> {% endcomment %}
 			  <div class="card-body">
